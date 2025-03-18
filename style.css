@@ -6,6 +6,10 @@
   font-family: Arial, sans-serif;
 }
 
+*:focus {
+  outline: none; /* Remove focus outline */
+}
+
 :root {
   --text: #090b16;
   --background: #f5f7fb;
