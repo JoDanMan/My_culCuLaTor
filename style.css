@@ -84,6 +84,7 @@ body {
     cursor: pointer;
     transition: background 0.3s, transform 0.1s;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
   }
   button:hover {
     background-color: hsla(303, 52%, 38%, 0.404);
