@@ -1,0 +1,144 @@
+/* General reset and body styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+:root {
+  --text: #090b16;
+  --background: #f5f7fb;
+  --primary: #5363bc;
+  --secondary: #cf96d6;
+  --accent: #cc7db5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    to right,
+    #5363bc,
+    #8fa1e8
+  ); /* Gradient background */
+}
+
+/* Calculator container */
+#calculator {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--primary);
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  overflow: hidden;
+  padding: 20px;
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #d04061;
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+  }
+  /* Display input field */
+  #display {
+    width: 100%;
+    background: hsla(22, 72%, 43%, 0.555);
+    border: none;
+    border-radius: 15px;
+    color: #ecf0f1; /* Light text color */
+    font-size: 5rem;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  /* Button container */
+  #keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px; /* Space between buttons */
+  }
+  /* Buttons */
+  button {
+    width: 100px;
+    height: 100px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 50px;
+    color: #ecf0f1; /* Light text color */
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  button:hover {
+    background-color: hsla(303, 52%, 38%, 0.404);
+  }
+  button:active {
+    background-color: hsla(237, 55%, 31%, 0.733);
+  }
+  /* Operator buttons */
+  button[onclick*="appendToDisplay('+')"],
+  button[onclick*="appendToDisplay('-')"],
+  button[onclick*="appendToDisplay('*')"],
+  button[onclick*="appendToDisplay('/')"] {
+    background: #e67e22; /* Orange for operators */
+    color: #fff;
+  }
+  .operator-btn:hover {
+    background-color: hsla(209, 52%, 27%, 0.555);
+  }
+  .operator-btn:active {
+    background-color: hsla(237, 51%, 62%, 0.733);
+  }
+  /* Equals button */
+  button[onclick="calculate()"] {
+    background-color: hsla(73, 63%, 55%, 0.733);
+    color: #fff;
+  }
+  button[onclick="calculate()"]:hover {
+    background-color: hsla(0, 67%, 36%, 0.555);
+  }
+  button[onclick="calculate()"]:active {
+    background-color: hsla(347, 87%, 46%, 0.733);
+  }
+  /* Clear button */
+  button[onclick="clearDisplay()"] {
+    background-color: hsla(0, 77%, 53%, 0.733);
+    color: #fff;
+  }
+  button[onclick="clearDisplay()"]:hover {
+    background-color: hsla(0, 85%, 33%, 0.555);
+  }
+  button[onclick="clearDisplay()"]:active {
+    background-color: hsla(143, 87%, 46%, 0.733);
+  }
+}
+
+/* Media queries for smaller devices */
+@media screen and (max-width: 600px) {
+  #calculator {
+    padding: 10px;
+    h1 {
+      font-size: 2.5rem;
+    }
+    #display {
+      font-size: 1.5rem;
+    }
+    button {
+      width: 70px;
+      height: 70px;
+      font-size: 2rem;
+    }
+  }
+}
